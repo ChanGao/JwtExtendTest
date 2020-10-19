@@ -1,0 +1,8 @@
+SUCCESS = '0'
+ERROR = '-1'
+PARAMETER_ERROR = '-2'
+
+# UN_AUTH_ERROR = '-4'
+
+RESULT_SUCCESS = '请求成功'
+RESULT_ERROR = '请求错误'
