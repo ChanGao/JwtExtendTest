@@ -1,0 +1,34 @@
+1.github的setting选择ssh and genkey选项目
+
+2.选择Generating a new SSH key and adding it to the ssh-agent
+
+Open Terminal.
+
+$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"（此处使用github的帐号，尽量不要乱填）
+This creates a new ssh key, using the provided email as a label.
+
+> Generating public/private rsa key pair.（一直按enter，不用设置密码）
+When you're prompted to "Enter a file in which to save the key," press Enter. This accepts the default file location.
+
+> Enter a file in which to save the key (/home/you/.ssh/id_rsa): [Press enter]
+At the prompt, type a secure passphrase. For more information, see "Working with SSH key passphrases".
+
+> Enter passphrase (empty for no passphrase): [Type a passphrase]
+> Enter same passphrase again: [Type passphrase again]
+
+重要！！！！ 必须执行这个步骤，添加公共key到id_rsa
+> $ ssh-add ~/.ssh/id_rsa
+
+(而后复制id_rsa.pub的key到github的创建key的位置
+若是gitlab，cat .../id_rsa ..../clip 复制，
+且生成时，使用ssh-keygen -o -t rsa -b *** -c "邮箱"的选项
+)
+
+
+3、在pycharm打开终端
+> git init
+> git add .
+> git commit -m "初始化"
+> （第一次建立连接时执行）git remote add origin (远程连接，给SSH链接，不要给成https的链接)
+> git pull origin master (--allow-unrelated-histories)
+> git push origin master

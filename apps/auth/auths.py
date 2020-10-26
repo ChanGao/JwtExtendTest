@@ -1,6 +1,8 @@
 from apps.models import User,Admin
 import logging
 
+# import cairosvg
+
 def user_loader_handler(indentity=None):
     if indentity is None:
         return None
