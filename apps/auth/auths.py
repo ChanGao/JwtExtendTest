@@ -15,10 +15,12 @@ def user_loader_handler(indentity=None):
         # 当有不同的用户角色时候，使用此种方式,传入当前的用户角色
         user = User.query.filter_by(user_code=indentity).first()
         if user:
-            return user
+            current_user = user
+            return current_user
         else:
             admin = Admin.query.filter_by(user_code=indentity).first()
-            return admin
+            current_user = admin
+            return current_user
     except Exception as e:
         logging.debug(e)
 
